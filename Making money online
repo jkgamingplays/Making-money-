@@ -41,16 +41,33 @@
             cursor: pointer;
             border: none;
             border-radius: 12px;
+            transition: background-color 0.3s;
         }
 
         .button:hover {
             background-color: #45a049; /* Darker green */
         }
 
+        .login-button {
+            background-color: #DB4437; /* Google Red */
+        }
+
+        .login-button:hover {
+            background-color: #C1351D; /* Darker Google Red */
+        }
+
+        .apple-button {
+            background-color: #000000; /* Apple Black */
+        }
+
+        .apple-button:hover {
+            background-color: #7E7E7E; /* Darker Apple Black */
+        }
+
         .balance {
             font-size: 24px;
             margin: 20px 0;
-            text-align: center;
+            text-align: right; /* Align balance to the right */
         }
 
         .cashout-button {
@@ -62,10 +79,17 @@
             cursor: pointer;
             margin: 5px;
             color: white;
+            transition: background-color 0.3s;
         }
 
         .cashout-button:hover {
             background-color: #005f7f; /* Darker blue on hover */
+        }
+
+        .tabs {
+            display: flex;
+            justify-content: space-around;
+            margin-top: 20px;
         }
     </style>
 </head>
@@ -73,15 +97,40 @@
     <header>
         <h1>Welcome to Your Website</h1>
     </header>
-    <div class="container">
-        <h2>Take a Survey</h2>
-        <button class="button" onclick="window.location.href='https://your-survey-link.com'">Take a Survey</button>
 
+    <div class="container">
+        <!-- Sign Up/Login Section -->
+        <h2>Sign Up / Log In</h2>
+        <button class="button login-button" onclick="window.location.href='https://your-google-login-link.com'">Log In with Google</button>
+        <button class="button apple-button" onclick="window.location.href='https://your-apple-login-link.com'">Log In with Apple</button>
+        
+        <!-- After Login -->
         <div class="balance">Balance: £0.00</div>
-        <h2>Cashout Options</h2>
+        <div class="tabs">
+            <button class="button" onclick="window.location.href='https://your-survey-link.com'">Surveys</button>
+            <button class="button" onclick="window.location.href='https://your-task-link.com'">Tasks</button>
+            <button class="button" onclick="window.location.href='cashout.html'">Cashout</button>
+            <button class="button" onclick="window.location.href='https://your-donate-link.com'">Donate</button>
+        </div>
+    </div>
+
+    <!-- Cashout Options Page -->
+    <div class="container" id="cashout" style="display:none;">
+        <h2>Choose Cashout Option</h2>
         <button class="cashout-button" onclick="window.location.href='https://www.paypal.com'">Cashout to PayPal</button>
         <button class="cashout-button" onclick="window.location.href='https://www.amazon.co.uk'">Cashout to Amazon</button>
         <button class="cashout-button" onclick="window.location.href='https://www.apple.com'">Cashout to Apple</button>
     </div>
+
+    <script>
+        // This script simulates a successful login and shows the main content
+        const loginSuccess = true; // Simulated login status
+
+        if (loginSuccess) {
+            document.querySelector('.container').style.display = 'block'; // Show main content
+        } else {
+            // Handle login failure (optional)
+        }
+    </script>
 </body>
 </html>
